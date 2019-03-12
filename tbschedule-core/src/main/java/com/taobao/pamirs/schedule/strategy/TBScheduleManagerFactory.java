@@ -182,11 +182,12 @@ public class TBScheduleManagerFactory implements ApplicationContextAware {
     }
 
     public void reRegisterManagerFactory() throws Exception {
-        // 重新分配调度器
+        // 重新分配调度器，返回不可管理的调度策略类型名称，并停止对应的调度处理器
         List<String> stopList = this.getScheduleStrategyManager().registerManagerFactory(this);
         for (String strategyName : stopList) {
             this.stopServer(strategyName);
         }
+        // 根据策略重新分配调度任务机器的任务数，并在zk上更新对应的ScheduleStrategyRunntime中的AssignNum
         this.assignScheduleServer();
         this.reRunScheduleServer();
     }

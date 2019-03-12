@@ -19,7 +19,7 @@
           init-method="init">
         <property name="zkConfig">
             <map>
-                <entry key="zkConnectString" value="10.10.40.27:2181,10.10.40.27:2181,10.10.40.27:2181"/>
+                <entry key="zkConnectString" value="127.0.0.1:2181"/>
                 <entry key="rootPath" value="/taobao-pamirs-schedule/huijin"/>
                 <entry key="zkSessionTimeout" value="6000000"/>
                 <entry key="userName" value="ScheduleAdmin"/>
